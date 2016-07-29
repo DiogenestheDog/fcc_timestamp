@@ -1,0 +1,22 @@
+{
+  "name": "timestamp",
+  "version": "1.0.0",
+  "description": "Timestamp API for FCC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiogenestheDog/fcc_timestamp.git"
+  },
+  "author": "Ryan Guthrie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiogenestheDog/fcc_timestamp/issues"
+  },
+  "homepage": "https://github.com/DiogenestheDog/fcc_timestamp#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
