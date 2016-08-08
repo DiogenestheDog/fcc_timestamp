@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var moment = require('moment');
 var port = 3000;
+// moment formats user is allowed
 var momentFormats = ["MMMM DD, YYYY", "MMM D, YYYY", "MMM DD, YYYY", "MMMM DD, YYYY", "MMM Do, YYYY", "MMMM Do, YYYY"];
 
 app.get('/*', function (req, res) {
@@ -10,6 +11,7 @@ app.get('/*', function (req, res) {
     var tempus = moment.unix(+timeIn).format("MMMM D, YYYY");
     res.end(JSON.stringify({"unix" : timeIn, "natural": tempus }));
   }
+  // remove commas and whitespace so moment.isValid() works properly
   else if(moment(timeIn.replace(/,(%20)+|,|(%20)+/g, "-")).isValid()){
     timeIn = timeIn.replace(/,(%20)+|,|(%20)+/g, "-");
     var tempus = moment(timeIn, momentFormats).format("MMMM D, YYYY");

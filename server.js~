@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var moment = require('moment');
 var port = 3000;
+// moment formats user is allowed
 var momentFormats = ["MMMM DD, YYYY", "MMM D, YYYY", "MMM DD, YYYY", "MMMM DD, YYYY", "MMM Do, YYYY", "MMMM Do, YYYY"];
 
 app.get('/*', function (req, res) {
