@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/DiogenestheDog/fcc_timestamp#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "moment": "^2.14.1"
   }
 }
