@@ -2,18 +2,15 @@ var express = require('express');
 var app = express();
 var moment = require('moment');
 var port = 3000;
-/*var months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "dec"];*/
 var momentFormats = ["MMMM DD, YYYY", "MMM D, YYYY", "MMM DD, YYYY", "MMMM DD, YYYY", "MMM Do, YYYY", "MMMM Do, YYYY"];
 
 app.get('/*', function (req, res) {
   var timeIn = req.url.slice(1);
   if(/^\d{1,12}$/.test(timeIn)) {
     var tempus = moment.unix(+timeIn).format("MMMM D, YYYY");
-  //var tempus = new Date(+req.url.slice(1) * 1000);
     res.end(JSON.stringify({"unix" : timeIn, "natural": tempus }));
   }
   else if(moment(timeIn.replace(/,(%20)+|,|(%20)+/g, "-")).isValid()){
-    //console.log(moment(timeIn, momentFormats).format("MMMM DD, YYYY"));
     timeIn = timeIn.replace(/,(%20)+|,|(%20)+/g, "-");
     var tempus = moment(timeIn, momentFormats).format("MMMM D, YYYY");
     res.end(JSON.stringify({"unix" : moment(timeIn, momentFormats).format("X"),
@@ -27,12 +24,3 @@ app.get('/*', function (req, res) {
 app.listen(port);
 console.log("Listening on port: " + port);
 
-// acceptable moment formats
-/**
-  MMM MMMM, D DD Do, YYYY
-*/
-/**
-  transform input for validation
-  /%20+|,/g
-  
-*/
